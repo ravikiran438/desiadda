@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html class="no-js">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ page.title }}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include meta.html %}
 
-    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
 
     <!-- build:css({app,.tmp}) /css/main.css -->
-    <link rel="stylesheet" href="/_bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="/css/syntax.css">
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
@@ -20,6 +16,11 @@
     <script src="/_bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+    {% include googleanalytics.html %}
   </head>
   <body>
     <!--[if lt IE 8]>
@@ -29,7 +30,7 @@
     {{ content }}
 
     {% include scripts.html %}
-    {% include googleanalytics.html %}
+    
 
   </body>
 </html>

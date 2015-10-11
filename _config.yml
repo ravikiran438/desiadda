@@ -2,12 +2,44 @@
 # 1. Gruntfile task
 # 2. config.build.yml
 # 3. config.yml
+#
+# This file contains configuration flags to customize your site
+#
 
-name: desiadda
-description: The one stop place for all things Miami.
-author:
-  name: Ravi
-  email: ravikiran438@gmail.com
+# title of your site (displayed in the header)
+title: Desi Adda \ (•◡•) /
+# email address for support
+email: desiadda.miami@gmail.com
+# Short bio or description (displayed in the header)
+description: > # this means to ignore newlines until "baseurl:"
+  The one stop place for all things Miami.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://desiadda.miami" # the base hostname & protocol for your site
+author: Ravi
+
+# Includes an icon in the footer for each username you enter
+footer-links:
+  dribbble:
+  email: desiadda.miami@gmail.com
+  facebook:
+  flickr:
+  github: # github pages repo
+  instagram:
+  linkedin:
+  pinterest:
+  rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
+  twitter: # twitter username
+  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: # anything in your profile username that comes after plus.google.com/
+
+
+permalink: /:title/
+
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics:
+
+timezone: America/New_York
 
 # Grunt handles images and assets.
 exclude: ['img', 'css', 'js', 'fonts',
@@ -24,3 +56,5 @@ markdown: redcarpet
 #   extensions: ['fenced_code_blocks', 'smart']
 
 pygments: true
+
+
