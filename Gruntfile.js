@@ -88,6 +88,29 @@ module.exports = function (grunt) {
         }
       }
     },
+    responsive_images: {
+        dev: {
+            options: {
+                sizes: [
+                    {
+                        width: 320,
+                    },
+                    {
+                        width: 640
+                    },
+                    {
+                        width: 1024
+                    }
+                ]
+            },
+            files: [{
+                expand: true,
+                cwd: '<%= yeoman.app %>/img/posts',
+                src: '**/*.{png,jpg,jpeg}',
+                dest: '<%= yeoman.dist %>/img/posts'
+            }]
+        }
+    },
     clean: {
       dist: {
         files: [{
@@ -238,8 +261,9 @@ module.exports = function (grunt) {
           src: [
             // Jekyll processes and moves HTML and text files.
             // Usemin moves CSS and javascript inside of Usemin blocks.
-            // Copy moves asset files and directories.
+            // Copy moves asset files and directories not handled in other tasks here
             'img/**/*',
+            '!img/posts/**/*.{png,jpg,jpeg}',
             'fonts/**/*',
             // Like Jekyll, exclude files & folders prefixed with an underscore.
             '!**/_*{,/**}',
@@ -374,6 +398,7 @@ module.exports = function (grunt) {
     'concat',
     'cssmin',
     'autoprefixer:dist',
+    'responsive_images:dev',
     'uglify',
     'imagemin',
     'svgmin',
